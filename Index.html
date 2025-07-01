@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Beginner-Friendly Article About HyperText Markup Language">
+    <meta name="keywords" content="html, HyperText Markup Language">
+    <meta name="author" content="Scarlet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="HTML Evolution">
+<meta property="og:description" content="This Article Is a Beginner-Friendly Page Explaining The History Of The Famous Language Known As HTML | HyperText-Markup Language">
+<meta property="og:image" content="images/webthumb.jpeg">
+<meta property="og:url" content="https://html.com">
+    <title>HyperText Markup Language</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      /* CSS Variables for Theming */
+:root {
+    --bg-color: #200;
+    --text-color: white;
+    --header-color: orange;
+    --table-bg: #2a2a2a;
+    --table-header-bg: #ff6600;
+    --table-row-hover: #3a3a3a;
+    --table-border: #333;
+    --caption-bg: #500;
+    --link-color: orange;
+    --hr-color: darkorange;
+    --fieldset-border: #ff6600;
+    --input-bg: #3a3a3a;
+    --input-text: white;
+    --button-bg: #ff6600;
+    --button-text: white;
+    --button-hover-bg: #e65c00;
+    --scroll-thumb: #ff6600;
+    --scroll-track: #3a3a3a;
+    --mark-bg: #ffcc00; /* For <mark> tag */
+    --footer-bg: #111;
+    --footer-text: #ccc;
+    --nav-bg: rgba(0, 0, 0, 0.9);
+    --nav-link-hover: #ff6600;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-color: #ffa500;
+    --table-bg: #222;
+    --table-header-bg: #cc5500;
+    --table-row-hover: #2c2c2c;
+    --table-border: #444;
+    --caption-bg: #600;
+    --link-color: #ffa500;
+    --hr-color: #cc5500;
+    --fieldset-border: #cc5500;
+    --input-bg: #333;
+    --input-text: #e0e0e0;
+    --button-bg: #cc5500;
+    --button-text: white;
+    --button-hover-bg: #b34a00;
+    --scroll-thumb: #cc5500;
+    --scroll-track: #2a2a2a;
+    --mark-bg: #e6b800;
+    --footer-bg: #000;
+    --footer-text: #bbb;
+    --nav-bg: rgba(0, 0, 0, 0.95);
+    --nav-link-hover: #cc5500;
+}
+
+
+/* General Body and Layout */
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; /* Remove body padding, use container for internal padding */
+    margin: 0;
+    min-height: 100vh;
+    transition: background-color 0.3s ease; /* Smooth theme transition */
+}
+
+.container {
+    width: 90%;
+    max-width: 960px; /* Max width for content */
+    padding: 30px 20px;
+    box-sizing: border-box; /* Include padding in width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader {
+    border: 8px solid var(--hr-color);
+    border-top: 8px solid var(--header-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header */
+.header {
+    background-color: var(--caption-bg);
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* For theme toggle button positioning */
+}
+
+.header h1 {
+    color: var(--header-color);
+    text-align: center;
+    margin: 0;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-button {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: var(--table-header-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Image */
+img {
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+}
+
+/* Tables */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%; /* Make table take full width of container */
+    background-color: var(--table-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+caption {
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: var(--caption-bg);
+    color: var(--text-color);
+    padding: 15px;
+    caption-side: top;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: -1px; /* Overlap border with table */
+}
+
+th, td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--table-border);
+}
+
+thead {
+    background-color: var(--table-header-bg);
+}
+
+thead th {
+    color: var(--button-text);
+    font-weight: 700;
+}
+
+tbody tr {
+    transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+tbody td {
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+tfoot {
+    background-color: var(--table-header-bg);
+}
+
+tfoot th,
+tfoot td {
+    background-color: var(--table-bg); /* Match table body background for footer cells */
+    color: var(--text-color);
+    font-weight: bold;
+    border-top: 1px solid var(--table-border);
+}
+
+.versions-table {
+    margin-top: 20px;
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--hr-color), transparent);
+    margin: 40px 0;
+    width: 80%;
+    border-radius: 50%;
+}
+
+/* Fieldset and Legend */
+fieldset {
+    border: 2px solid var(--fieldset-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--table-bg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+legend {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--header-color);
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* Video Section */
+#S0 fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+    margin-top: 15px;
+}
+
+/* Quiz Form */
+#quiz form {
+    width: 100%;
+}
+
+#quiz fieldset div {
+    margin-bottom: 10px;
+}
+
+#quiz label {
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#quiz label:hover {
+    color: var(--header-color);
+}
+
+#quiz input[type="radio"] {
+    accent-color: var(--table-header-bg); /* Styles the checked radio button */
+}
+
+#quiz select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--table-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-size: 1em;
+    appearance: none; /* Remove default dropdown arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.9a14.2%2014.2%200%200%200-10-4.1H15.4a14.2%2014.2%200%200%200-10%204.1%2014.2%2014.2%200%200%200-4.1%2010c0%203.9%201.5%207.6%204.1%2010l126.9%20126.9c5.6%205.6%2014.8%205.6%2020.4%200L287%2090.1a14.2%2014.2%200%200%200%204.1-10%2014.2%2014.2%200%200%200-4.1-10z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 1em;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.feedback-message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--header-color);
+}
+
+
+/* Content Sections */
+section, article, aside {
+    background-color: var(--table-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Initial state for fade-in */
+    transform: translateY(20px); /* Initial state for fade-in */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.fade-in.active,
+article.fade-in.active,
+aside.fade-in.active,
+img.fade-in.active,
+table.fade-in.active,
+hr.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+h2, h3, h4 {
+    color: var(--header-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--hr-color);
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+ul li, ol li {
+    margin-bottom: 8px;
+}
+
+code {
+    background-color: var(--input-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: var(--text-color);
+}
+
+mark {
+    background-color: var(--mark-bg);
+    color: black;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: var(--button-hover-bg);
+    text-decoration: underline;
+}
+
+/* Navigation (Sticky) */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: center;
+    gap: 15px; /* Spacing between links */
+}
+
+.sticky-nav h5 {
+    color: var(--text-color);
+    margin: 0 10px;
+    font-size: 1.1em;
+    flex-basis: 100%; /* Take full width on small screens */
+    margin-bottom: 10px;
+}
+
+.sticky-nav a {
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap; /* Prevent link text from breaking */
+}
+
+.sticky-nav a:hover {
+    background-color: var(--nav-link-hover);
+    color: white;
+    text-decoration: none;
+}
+
+.sticky-nav a.active {
+    background-color: var(--nav-link-hover);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.9em;
+    width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer a {
+    color: var(--link-color);
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 30px; /* Place at the bottom */
+    right: 30px; /* Place at the right */
+    z-index: 99; /* Make sure it's above other elements */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: var(--button-bg); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--button-hover-bg); /* Add a darker background on hover */
+    transform: translateY(-3px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scroll-track);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 10px;
+    border: 2px solid var(--scroll-track); /* Creates a bit of a border around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover-bg);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5em;
+    }
+
+    .theme-toggle-button {
+        padding: 8px 12px;
+        font-size: 1em;
+        right: 10px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 20px 10px;
+    }
+
+    table {
+        font-size: 0.95em;
+    }
+
+    caption {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    th, td {
+        padding: 8px 12px;
+    }
+
+    section, article, aside {
+        padding: 20px;
+    }
+
+    .sticky-nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .sticky-nav h5 {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
+    .sticky-nav a {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    #scrollToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .theme-toggle-button {
+        top: 15px; /* Adjust top for smaller screens */
+        right: 10px;
+        transform: none; /* Remove translateY */
+    }
+
+    .container {
+        padding: 15px 5px;
+    }
+
+    img {
+        max-width: 250px;
+    }
+
+    caption {
+        font-size: 1.3em;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    th, td {
+        padding: 6px 10px;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    legend {
+        font-size: 1.3em;
+    }
+
+    .sticky-nav {
+        gap: 5px;
+        padding: 8px;
+    }
+    .sticky-nav a {
+        font-size: 0.8em;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header">
+        <h1>HTML</h1>
+        <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle dark and light theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="container">
+        <img src="images/html.png" alt="HTML official logo" class="fade-in">
+
+        <table class="fade-in">
+            <caption><u>Overview</u></caption>
+            <thead>
+                <tr>
+                    <th><i>Full Name</i></th>
+                    <th><i>Creator</i></th>
+                    <th><i>Date</i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HyperText Markup Language</td>
+                    <td>Tim Berners-Lee</td>
+                    <td>1989</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Used In</th>
+                    <th>Paired With</th>
+                    <th>Best In</th>
+                </tr>
+                <tr>
+                    <td>Building Websites</td>
+                    <td>Structures</td>
+                    <td>CSS & JS</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <hr class="fade-in">
+
+        <section id="S0" class="content-section fade-in">
+            <fieldset>
+                <legend>HyperText Markup Language Introduction</legend>
+                <video controls poster="images/thumbnail.png" width="305" height="255">
+                    <source src="videos/Introduction to HTML __ Your First Web Page __ Part 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </fieldset>
+        </section>
+
+        <section id="quiz" class="content-section fade-in">
+            <form method="post" id="quiz-form">
+                <fieldset>
+                    <legend><u>Select Your Favorite Language</u></legend>
+                    <select name="favorite_language">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript" selected>JavaScript</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Python">Python</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="C">C</option>
+                        <option value="C#">C#</option>
+                        <option value="C++">C++</option>
+                        <option value="SQL">SQL</option>
+                    </select>
+                </fieldset>
+                <hr>
+                <fieldset>
+                    <legend>Your First Learned Language</legend>
+                    <div>
+                        <input type="radio" id="radio-html" name="first_language" value="HTML">
+                        <label for="radio-html">HTML</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-css" name="first_language" value="CSS">
+                        <label for="radio-css">CSS</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-php" name="first_language" value="PHP">
+                        <label for="radio-php">PHP</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-js" name="first_language" value="JavaScript">
+                        <label for="radio-js">JavaScript</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-python" name="first_language" value="Python">
+                        <label for="radio-python">Python</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-ruby" name="first_language" value="Ruby">
+                        <label for="radio-ruby">Ruby</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-c" name="first_language" value="C">
+                        <label for="radio-c">C</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-cpp" name="first_language" value="C++">
+                        <label for="radio-cpp">C++</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-csharp" name="first_language" value="C#">
+                        <label for="radio-csharp">C#</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio-sql" name="first_language" value="SQL">
+                        <label for="radio-sql">SQL</label>
+                    </div>
+                    <button type="submit" class="submit-button">Complete Quiz</button>
+                    <p id="quiz-feedback" class="feedback-message"></p>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="TB" class="content-section fade-in">
+            <p>But <strong>HTML</strong> <i>is more than just a bunch of tags. It has a rich history, a powerful structure, and continues to evolve to support modern web needs like video, accessibility, mobile devices, and even virtual reality.</i> <i>This article dives deep into the world of</i> <strong>HTML</strong> — <i>from its origins to its most advanced modern capabilities</i>.</p>
+        </section>
+
+        <section id="S1" class="content-section fade-in">
+            <h2>1. The History of HTML</h2>
+            <p><strong>HTML</strong> <i>began in</i> <u>1989</u> <i>when British computer scientist</i> <strong>Tim Berners-Lee</strong> <i>proposed a new system for sharing information over the internet. By</i> <u>1991</u>, <strong>HTML</strong> <i>was born, with just</i> <u>18 tags.</u></p>
+            <h4>Key Milestones:</h4>
+            <ul>
+                <li>HTML 1.0 (1993): The beginning. Basic tags like p, a, and img.</li>
+                <li>HTML 2.0 (1995): Added forms and tables.</li>
+                <li>HTML 3.2 (1997): Introduced scripting with JavaScript.</li>
+                <li>HTML 4.01 (1999): Focus on structure and accessibility.</li>
+                <li>HTML5 (2014+): The modern standard. Supports audio, video, canvas, semantic tags, and more.</li>
+            </ul>
+        </section>
+
+        <section id="S2" class="content-section fade-in">
+            <h3>3. HTML Document Structure</h3>
+            <p>Every <strong>HTML</strong> page follows a basic structure:</p>
+            <ol>
+                <li> <code>&lt;!DOCTYPE html&gt;</code> – Declares the document type.</li>
+                <li> <code>&lt;html&gt;</code> – The root of the HTML document.</li>
+                <li> <code>&lt;head&gt;</code> – Contains metadata like the title, character set, and links to stylesheets.</li>
+                <li> <code>&lt;body&gt;</code> – Contains everything visible on the page: headings, paragraphs, images, videos, etc.</li>
+            </ol>
+        </section>
+
+        <section id="S3" class="content-section fade-in">
+            <h3>4. HTML Elements: The Building Blocks</h3>
+            <p>4.1 Text Content Tags:</p>
+            <ul>
+                <li>Headings: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — From biggest to smallest.</li>
+                <li>Paragraphs: <code>&lt;p&gt;</code> — Basic text.</li>
+                <li>Bold/Italic: <code>&lt;strong&gt;, &lt;em&gt;, &lt;b&gt;, &lt;i&gt;</code></li>
+                <li>Lists: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> — For bullet and numbered lists.</li>
+                <li>Blockquote: For quoting text.</li>
+            </ul>
+            <h4>4.2 Media Tags</h4>
+            <ul>
+                <li>Images: <code>&lt;img&gt;</code> — Add pictures.</li>
+                <li>Audio & Video: <code>&lt;audio&gt;, &lt;video&gt;</code> — Native media support.</li>
+                <li>Canvas: <code>&lt;canvas&gt;</code> — 2D graphics via JavaScript‹</li>
+            </ul>
+            <h4>4.3 Links & Navigation:</h4>
+            <ul>
+                <li>Anchor: <code>&lt;a href=""&gt;</code> — Hyperlinks.</li>
+                <li>Nav: <code>&lt;nav&gt;</code> — Semantic navigation areas.</li>
+            </ul>
+            <form method="post">
+                <fieldset>
+                    <legend>4.4 Forms:</legend>
+                    <ul>
+                        <li>Input fields <code>(&lt;input&gt;)</code></li>
+                        <li>Text areas <code>(&lt;textarea&gt;)</code></li>
+                        <li>Dropdowns <code>(&lt;select&gt;)</code></li>
+                        <li>Buttons <code>(&lt;button&gt;)</code></li>
+                        <li>Form containers <code>(&lt;form&gt;)</code></li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="S4" class="content-section fade-in">
+            <h3>5. Semantic HTML</h3>
+            <p><strong>Semantic tags</strong> <i>describe the meaning of the content inside them, making it easier for browsers, developers, and assistive technologies to understand the page.</i></p>
+            <h4>Common Semantic Tags:</h4>
+            <ol>
+                <li><code>&lt;header&gt;</code>: Top section</li>
+                <li><code>&lt;footer&gt;</code>: Bottom section</li>
+                <li><code>&lt;main&gt;</code>: Primary content</li>
+                <li><code>&lt;article&gt;</code>: Standalone content</li>
+                <li><code>&lt;section&gt;</code>: Thematic grouping</li>
+                <li><code>&lt;aside&gt;</code>: Sidebar or extra info</li>
+                <li><code>&lt;figure&gt; &lt;figcaption&gt;</code>: Media and captions</li>
+            </ol>
+            <p>Using <strong>semantic HTML</strong> improves <b>SEO, accessibility</b>, and <b>maintainability</b>.</p>
+        </section>
+
+        <section id="S5" class="content-section fade-in">
+            <h3>6. Accessibility and ARIA in HTML</h3>
+            <p> <strong>HTML</strong> is vital for building <i>accessible websites for users with disabilities</i>.</p>
+            <ul>
+                <li>Use proper heading structure (<code>&lt;h1&gt;</code> → <code>&lt;h2&gt;</code> etc.)</li>
+                <li>Provide alt text for images</li>
+                <li>Use labels with form elements</li>
+                <li>Avoid using HTML <mark>purely for visual layout</mark></li>
+            </ul>
+            <p><strong>ARIA (Accessible Rich Internet Applications)</strong> adds roles and properties to elements <em>(like role="button")</em>, helping screen readers <i>interpret dynamic content correctly</i>.</p>
+        </section>
+
+        <article class="content-section fade-in">
+            <h3>7. HTML and Mobile Responsiveness</h3>
+            <p>Viewport meta tag: <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></p>
+            <hr>
+            <section id="SS6">
+                <ul>
+                    <li>Using percentage-based widths or flexbox</li>
+                    <li>Avoiding fixed sizes and outdated elements like ‹table› for layout</li>
+                </ul>
+            </section>
+            <section id="SS7">
+                <h3>Here's All HTML Versions Released Throughout The Years</h3>
+                <table class="versions-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Version</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1993</td>
+                            <td>HTML 1.0</td>
+                        </tr>
+                        <tr>
+                            <td>1995</td>
+                            <td>HTML 2.0</td>
+                        </tr>
+                        <tr>
+                            <td>1997</td>
+                            <td>HTML 3.2</td>
+                        </tr>
+                        <tr>
+                            <td>1999</td>
+                            <td>HTML 4.01</td>
+                        </tr>
+                        <tr>
+                            <td>2000</td>
+                            <td>XHTML</td>
+                        </tr>
+                        <tr>
+                            <td>2014+</td>
+                            <td>HTML5</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">What's New In Each Version?</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <strong>HTML 1.0 (1993):</strong> Basic structure like headings, paragraphs, and links.<br>
+                                <strong>HTML 2.0 (1995):</strong> Introduced forms, inline images, and broader tag support.<br>
+                                <strong>HTML 3.2 (1997):</strong> Added tables, scripts, applets, and improved styling.<br>
+                                <strong>HTML 4.01 (1999):</strong> Enhanced accessibility, forms, objects, and strict/loose DTDs.<br>
+                                <strong>XHTML (2000):</strong> Reformulated HTML as XML—stricter rules and structure.<br>
+                                <strong>HTML5 (2014):</strong> Modern web standard: audio, video, canvas, semantic tags, APIs.
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            <section id="SS8">
+                <h3>8. Modern Features of HTML5</h3>
+                <ul>
+                    <li>HTML5 brought massive upgrades:</li>
+                    <li>Audio/Video support without plugins</li>
+                    <li>Canvas and SVG for drawings and graphics</li>
+                    <li>Geolocation API</li>
+                    <li>Drag and Drop</li>
+                </ul>
+            </section>
+            <section id="SS9">
+                <ul>
+                    <li>Web Storage (localStorage & sessionStorage)</li>
+                    <li>Web Workers for background tasks</li>
+                    <li>It also deprecated old tags like &lt;font&gt;, ‹center›, and encouraged semantic markup instead.</li>
+                </ul>
+            </section>
+        </article>
+
+        <hr class="fade-in">
+
+        <aside class="content-section fade-in">
+            <h3>10. The Future of HTML</h3>
+            <p><b>HTML continues to evolve. The current trend focuses on:</b></p>
+            <ul>
+                <li>Progressive Web Apps (PWAs)</li>
+                <li>Native VR and AR support</li>
+                <li>More accessibility standards</li>
+                <li>Improved performance and security</li>
+            </ul>
+            <p>The <strong>Web Hypertext Application Technology Working Group (WHATWG)</strong> <i>now maintains</i> <strong>HTML</strong>, <i>focusing on living standards — continuously evolving rather than creating versioned releases</i>.</p>
+        </aside>
+
+        <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    </main>
+
+    <nav class="sticky-nav">
+        <h5>Jump To:</h5>
+        <a href="#TB">Introduction</a>
+        <a href="#S1">History</a>
+        <a href="#S2">Document</a>
+        <a href="#S3">Elements</a>
+        <a href="#S4">Semantics</a>
+        <a href="#S5">Accessibility</a>
+        <a href="#SS6">Responsive Design</a>
+        <a href="#SS7">HTML Versions</a>
+        <a href="#SS8">Features</a>
+        <a href="#SS9">Web Storage</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
+    <footer>
+        <p>&copy; 2025 Scarlet. All rights reserved.</p>
+        <p>
+            Made by Scarlet |
+            <a href="mailto:nivexplus@gmail.com">Contact Me</a>
+        </p>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Preloader
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500); // Allow time for fade-out animation
+        });
+    }
+
+    // 2. Theme Toggle (Dark/Light Mode)
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+        } else {
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Change icon to moon
+        }
+    } else {
+        // Default to light theme if no preference is saved
+        body.setAttribute('data-theme', 'light');
+        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // 3. Smooth Scrolling for Navigation Links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Update active class in navigation
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // 4. Highlight Active Navigation Link on Scroll
+    const sections = document.querySelectorAll('main section, main article, main aside');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSectionId = entry.target.id;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentSectionId)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+
+    // 5. Quiz Submission Feedback
+    const quizForm = document.getElementById('quiz-form');
+    const quizFeedback = document.getElementById('quiz-feedback');
+
+    if (quizForm) {
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            // In a real application, you would send this data to a server
+            // For now, we'll just show a success message.
+            const favoriteLanguage = this.elements.favorite_language.value;
+            const firstLanguageRadio = this.elements.first_language;
+            let firstLanguage = 'Not selected';
+            for (const radio of firstLanguageRadio) {
+                if (radio.checked) {
+                    firstLanguage = radio.value;
+                    break;
+                }
+            }
+            if (firstLanguage === 'Not selected') {
+                // Fallback for cases where no radio is checked by default
+                quizFeedback.textContent = "Please select your first learned language.";
+                quizFeedback.style.color = "red";
+                return;
+            }
+
+
+            quizFeedback.textContent = `Thanks for completing the quiz! Your favorite is "${favoriteLanguage}" and your first learned was "${firstLanguage}". (This is a demo, no data is saved.)`;
+            quizFeedback.style.color = 'var(--header-color)'; // Use theme color
+        });
+    }
+
+    // 6. Scroll to Top Button
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.addEventListener("scroll", () => {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+        document.body.scrollIntoView({ behavior: 'smooth' }); // For Safari
+        document.documentElement.scrollIntoView({ behavior: 'smooth' }); // For Chrome, Firefox, IE and Opera
+    });
+
+    // 7. Intersection Observer for Section Fade-in Animations
+    const fadinElements = document.querySelectorAll('.fade-in');
+
+    const fadeInObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 // When 10% of the element is visible, trigger
+    };
+
+    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, fadeInObserverOptions);
+
+    fadinElements.forEach(element => {
+        fadeInObserver.observe(element);
+    });
+});
+
+    </script>
+</body>
+</html>
