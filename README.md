@@ -4,4 +4,4 @@
 
 **All Rights Reserved ©**
 
-**Made By Scarlet (You Can Contact At @nivexplus@gmail.com)**
+**Made By Scarlet (You Can Contact At nivexplus@gmail.com)**
